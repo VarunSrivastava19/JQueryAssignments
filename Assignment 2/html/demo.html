@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+  <style type="text/css">
+    body
+{
+    padding: 10px;
+    font-family: Arial;
+    Font-size: 10pt;
+}
+span
+{
+    font-weight:bold;
+}
+
+.san{
+    height: 26px;
+    width: 250px;
+    border: 1px solid #9E9E9E;
+    padding: 5px;
+    border-radius: 5px;
+    margin: 10px;
+
+}
+
+  </style>
+<script type='text/javascript'>//<![CDATA[
+$(window).load(function(){
+$(document).ready(function() {
+    $('#txtPhone').blur(function(e) {
+        if (validatePhone('txtPhone')) {
+            $('#spnPhoneStatus').html('Valid Mobil Number');
+            $('#spnPhoneStatus').css('color', 'green');
+        }
+        else {
+            $('#spnPhoneStatus').html('Invalid Mobile Number');
+            $('#spnPhoneStatus').css('color', 'red');
+        }
+    });
+});
+
+function validatePhone(txtPhone) {
+    var a = document.getElementById(txtPhone).value;
+    var filter = /[1-9]{1}[0-9]{9}/;
+    if (filter.test(a)) {
+        return true;
+    }
+    else {
+        return false;
+    }
+}
+});//]]> 
+
+</script>
+</head>
+<body>
+  Phone Number: <input type='text' id='txtPhone' class="san" maxlength="10"/>
+<span id="spnPhoneStatus"></span>
+</body>
+</html>
